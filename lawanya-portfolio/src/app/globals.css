@@ -4,7 +4,7 @@
 
 :root {
   --primary-color: #EBE8DE;
-  --secondary-color: #171717;
+  --secondary-color: var(--color-green-800);
   --text-color: #000;
 }
 
