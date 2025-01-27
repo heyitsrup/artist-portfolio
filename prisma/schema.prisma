@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+enum Size {
+  A1
+  A2
+  A3
+  A4
+}
+
+enum Medium {
+  Acrylic_Painting
+  Watercolour_Painting
+  Biro_Sketch
+}
+
+model GalleryPiece {
+  id       Int     @id @default(autoincrement())
+  title    String
+  image    String
+  size     String
+  medium   String
+  price    Float
+}
