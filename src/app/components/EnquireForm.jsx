@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function OrderForm() {
+export default function EnquireForm() {
   return (
-    <div className="bg-[#EBE8DE] flex items-center justify-center min-h-screen">
-      <div className="p-6 rounded-2xl shadow-lg w-full max-w-lg">
+    <div className="bg-[#EBE8DE] flex justify-center items-center min-h-screen">
+      <div className="p-6 rounded-2xl shadow-lg w-full max-w-full">
         <form action="#" method="post" encType="multipart/form-data" className="space-y-4">
           {/* Name Input */}
           <div>
@@ -141,7 +141,7 @@ export default function OrderForm() {
               type="submit"
               className="w-full py-2 px-4 bg-green-700 text-white font-semibold rounded-lg shadow-md hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
-              Submit Order
+              Submit Request
             </button>
           </div>
         </form>
