@@ -1,15 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from 'next/image';
-import SwiperCore, { Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
-// Install required Swiper modules
-SwiperCore.use([Navigation, Pagination]);
+import Image from "next/image";
 
 export default function Gallery() {
   const [galleryPieces, setGalleryPieces] = useState([]);
@@ -30,45 +22,45 @@ export default function Gallery() {
 
   return (
     <div className="container mx-auto pt-32">
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={10}
-        loop={true}
-        navigation={{
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        }}
-        breakpoints={{
-          640: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }}
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
         {galleryPieces.length > 0 ? (
-          galleryPieces.map((piece) => (
-            <SwiperSlide key={piece.id}>
-              <Image
-                src={piece.image}
-                alt={piece.title}
-                className="h-auto w-full rounded-xl object-cover border-4 border-stone-400"
-                height={1000}
-                width={1000}
-              />
-              <div className="text-start mt-4 pl-4">
-                <span className="text-xl">
-                  {piece.title} - {piece.size} {piece.medium}
-                </span>
-                <br />
-                <span>Price - £{piece.price.toFixed(2)}</span>
+          galleryPieces.map((piece) => {
+            const isLandscape = piece.orientation === "landscape";
+            const width = isLandscape ? 2000 : 1000;
+            const height = isLandscape ? 1000 : 2000;
+
+            return (
+              <div
+                key={piece.id}
+                className={`relative group flex flex-col ${isLandscape ? 'col-span-2' : 'col-span-1'} min-h-full`} // Allow landscape to span 2 columns and center vertically
+              >
+                <div className="relative w-full flex items-center justify-center min-h-full"> {/* Flex to center vertically */}
+                  <div className="w-full" style={{ height: isLandscape ? 'auto' : '100%' }}>
+                    <Image
+                      src={piece.image}
+                      alt={piece.title}
+                      className="object-cover w-full h-full rounded-xl"
+                      width={width}
+                      height={height}
+                    />
+                  </div>
+
+                  {/* Overlay matching the size of the image */}
+                  <div className="absolute inset-0 flex rounded-xl items-center justify-center bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="text-start p-4">
+                      <span className="text-xl">{piece.title} - {piece.size} {piece.medium}</span>
+                      <br />
+                      <span>Price - £{piece.price.toFixed(2)}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </SwiperSlide>
-          ))
+            );
+          })
         ) : (
           <p>No gallery pieces available at the moment.</p>
         )}
-      </Swiper>
-
-      <div className="swiper-button-next"></div>
-      <div className="swiper-button-prev"></div>
+      </div>
     </div>
   );
-};
+}

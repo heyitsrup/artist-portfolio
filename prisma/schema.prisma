@@ -27,10 +27,11 @@ enum Medium {
 }
 
 model GalleryPiece {
-  id       Int     @id @default(autoincrement())
-  title    String
-  image    String
-  size     String
-  medium   String
-  price    Float
+  id            Int     @id @default(autoincrement())
+  title         String
+  image         String
+  size          String
+  medium        String
+  price         Float
+  orientation   String
 }
