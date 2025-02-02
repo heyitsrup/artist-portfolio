@@ -5,7 +5,7 @@ const homemadeApple = Homemade_Apple({ subsets: ["latin"], weight: "400" });
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between bg-transparent w-[95%] m-auto rounded-2xl fixed top-5 left-1/2 transform -translate-x-1/2 p-6 z-50">
+    <nav className="flex items-center justify-between bg-transparent w-[95%] m-auto rounded-2xl top-5 left-1/2 transform p-6 z-50">
       {/* Left-aligned Logo */}
       <div className="flex flex-col leading-tight">
         <span className={`text-2xl font-bold tracking-wide ${homemadeApple.className}`}>
@@ -19,7 +19,7 @@ export default function Navbar() {
       {/* Right-aligned Links */}
       <ul className="flex space-x-6">
         <li className="md:px-4 md:py-4 hover:text-green-700 hover:scale-110 transition">
-          <Link href="/gallery" title="Gallery">gallery</Link>
+          <Link href="/" title="Gallery">gallery</Link>
         </li>
         <li className="md:px-4 md:py-4 hover:text-green-700 hover:scale-110 transition">
           <Link href="#" title="Shop">shop</Link>

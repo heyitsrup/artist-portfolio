@@ -1,19 +1,80 @@
-import React from "react";
+"use client"
+
+import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 
 export default function EnquireForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    size: '',
+    medium: '',
+    event: '',
+    details: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    if (name === 'reference') {
+      setFormData({ ...formData, [name]: files[0] });
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Prepare email data
+    const templateParams = {
+      name: formData.name,
+      email: formData.email,
+      size: formData.size,
+      medium: formData.medium,
+      event: formData.event,
+      details: formData.details,
+    };
+
+    // Send email via EmailJS
+    emailjs
+      .send('service_3i7p29u', 'template_u5qyeyr', templateParams, 'L9fKDLBZ8eRSRY3sx')
+      .then(
+        (response) => {
+          console.log('Email successfully sent!', response);
+          alert('Your message has been sent!');
+        },
+        (error) => {
+          console.error('Error sending email:', error);
+          alert('There was an error sending your message. Please try again.');
+        }
+      );
+
+    // Reset form data after submission
+    setFormData({
+      name: '',
+      email: '',
+      size: '',
+      medium: '',
+      event: '',
+      details: '',
+    });
+  };
+
   return (
-    <div className="bg-[#EBE8DE] flex justify-center items-center min-h-screen">
-      <div className="p-6 rounded-2xl shadow-lg w-full max-w-full">
-        <form action="#" method="post" encType="multipart/form-data" className="space-y-4">
+    <div className="bg-[#EBE8DE] flex items-center justify-center min-h-screen">
+      <div className="p-6 rounded-2xl shadow-lg w-full max-w-lg">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name Input */}
           <div>
             <label htmlFor="name" className="block text-base font-medium text-gray-700">
-              Name
+              Name (required)
             </label>
             <input
               type="text"
               id="name"
               name="name"
+              value={formData.name}
+              onChange={handleChange}
               required
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-green-700 focus:border-green-700 sm:text-lg"
             />
@@ -22,62 +83,51 @@ export default function EnquireForm() {
           {/* Email Input */}
           <div>
             <label htmlFor="email" className="block text-base font-medium text-gray-700">
-              Email
+              Email (required)
             </label>
             <input
               type="email"
               id="email"
               name="email"
+              value={formData.email}
+              onChange={handleChange}
               required
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
             />
           </div>
 
-          {/* Horizontal Selector */}
+          {/* Selector for Size */}
           <div>
-            <label className="block text-base font-medium text-gray-700">Size</label>
-            <div className="mt-2 flex space-x-2">
-              <label>
-                <input type="radio" name="size" value="a5" required className="hidden" />
-                <span className="inline-block px-4 py-2 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300 focus:bg-indigo-200">
-                  A5
-                </span>
-              </label>
-              <label>
-                <input type="radio" name="size" value="a4" className="hidden" />
-                <span className="inline-block px-4 py-2 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300 focus:bg-indigo-200">
-                  A4
-                </span>
-              </label>
-              <label>
-                <input type="radio" name="size" value="a3" className="hidden" />
-                <span className="inline-block px-4 py-2 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300 focus:bg-indigo-200">
-                  A3
-                </span>
-              </label>
-              <label>
-                <input type="radio" name="size" value="a2" className="hidden" />
-                <span className="inline-block px-4 py-2 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300 focus:bg-indigo-200">
-                  A2
-                </span>
-              </label>
-              <label>
-                <input type="radio" name="size" value="a1" className="hidden" />
-                <span className="inline-block px-4 py-2 bg-gray-200 rounded-lg cursor-pointer hover:bg-gray-300 focus:bg-indigo-200">
-                  A1
-                </span>
-              </label>
-            </div>
+            <label htmlFor="size" className="block text-base font-medium text-gray-700">
+              Size (required)
+            </label>
+            <select
+              id="size"
+              name="size"
+              value={formData.size}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+            >
+              <option value="starter">Select the size</option>
+              <option value="A5">A5</option>
+              <option value="A4">A4</option>
+              <option value="A3">A3</option>
+              <option value="A2">A2</option>
+              <option value="A1">A1</option>
+            </select>
           </div>
 
-          {/* Dropdown Menu */}
+          {/* Medium Selector */}
           <div>
             <label htmlFor="medium" className="block text-base font-medium text-gray-700">
-              Medium
+              Medium (required)
             </label>
             <select
               id="medium"
               name="medium"
+              value={formData.medium}
+              onChange={handleChange}
               required
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
             >
@@ -88,38 +138,20 @@ export default function EnquireForm() {
             </select>
           </div>
 
-          {/* Image Upload */}
-          <div>
-            <label htmlFor="reference" className="block text-base font-medium text-gray-700">
-              Reference Image (Optional)
-            </label>
-            <input
-              type="file"
-              id="reference"
-              name="reference"
-              accept="image/*"
-              className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-green-800 hover:file:bg-indigo-100"
-            />
-          </div>
-
           {/* Event Selector */}
           <div>
             <label htmlFor="event" className="block text-base font-medium text-gray-700">
               Event
             </label>
-            <select
+            <input
+              type="text"
               id="event"
               name="event"
+              value={formData.event}
+              onChange={handleChange}
               required
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
-            >
-              <option value="starter">Select the special event</option>
-              <option value="valentines">Valentine's Day</option>
-              <option value="mothers_day">Mother's Day</option>
-              <option value="fathers_day">Father's Day</option>
-              <option value="birthday">Birthday</option>
-              <option value="other">Other</option>
-            </select>
+            />
           </div>
 
           {/* Text Box for More Details */}
@@ -130,6 +162,8 @@ export default function EnquireForm() {
             <textarea
               id="details"
               name="details"
+              value={formData.details}
+              onChange={handleChange}
               rows="4"
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             ></textarea>
@@ -141,11 +175,11 @@ export default function EnquireForm() {
               type="submit"
               className="w-full py-2 px-4 bg-green-700 text-white font-semibold rounded-lg shadow-md hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
             >
-              Submit Request
+              Submit
             </button>
           </div>
         </form>
       </div>
     </div>
   );
-};
+}

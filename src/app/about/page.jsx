@@ -38,7 +38,7 @@ export default function About() {
         </div>
       </div>
 
-      <div className="flex items-center justify-center py-8 px-4 sm:px-8">
+      <div className="flex items-center justify-center py-2 px-4 sm:px-8">
         <div className="max-w-screen-md w-full">
           <EnquireForm />
         </div>
