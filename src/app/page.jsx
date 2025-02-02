@@ -48,9 +48,9 @@ export default function Home() {
                   {/* Overlay matching the size of the image */}
                   <div className="absolute inset-0 flex rounded-xl items-center justify-center bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="text-start p-4">
-                      <span className="text-xl">{piece.title} - {piece.size} {piece.medium}</span>
+                      <span className="text-xl">{piece.title}</span>
                       <br />
-                      <span>Price - £{piece.price.toFixed(2)}</span>
+                      <span>{piece.size}, {piece.medium}</span>
                     </div>
                   </div>
                 </div>
