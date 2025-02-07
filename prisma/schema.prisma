@@ -26,12 +26,23 @@ enum Medium {
   Biro_Sketch
 }
 
+enum Status {
+  On_Sale
+  Sold
+}
+
+enum Orientation {
+  portrait
+  landscape
+}
+
 model GalleryPiece {
   id            Int     @id @default(autoincrement())
   title         String
   image         String
-  size          String
-  medium        String
+  size          Size @default(A2)
+  medium        Medium @default(Acrylic_Painting)
   price         Float
-  orientation   String
+  status        Status @default(On_Sale)
+  orientation   Orientation @default(portrait)
 }

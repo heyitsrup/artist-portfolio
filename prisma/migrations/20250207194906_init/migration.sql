@@ -5,5 +5,7 @@ CREATE TABLE "GalleryPiece" (
     "image" TEXT NOT NULL,
     "size" TEXT NOT NULL,
     "medium" TEXT NOT NULL,
-    "price" REAL NOT NULL
+    "price" REAL NOT NULL,
+    "orientation" TEXT NOT NULL,
+    "status" TEXT NOT NULL DEFAULT 'On_Sale'
 );
