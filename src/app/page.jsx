@@ -49,7 +49,7 @@ export default function Home() {
                     <div className="text-start p-4">
                       <span className="text-xl">{piece.title}</span>
                       <br />
-                      <span>{piece.size}, {piece.medium}</span>
+                      <span>{piece.size}, {piece.medium.replace(/_/g, " ")}</span>
                     </div>
                   </div>
                 </div>

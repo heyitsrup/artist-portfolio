@@ -27,7 +27,7 @@ export default function Shop() {
                     shopItems.map((item) => (
                         <div 
                             key={item.id} 
-                            className="flex bg-white border border-black rounded-lg shadow-sm overflow-hidden"
+                            className="flex bg-transparent border border-black rounded-lg shadow-sm overflow-hidden"
                         >
                             <div className="w-1/3">
                                 <Image
@@ -42,7 +42,7 @@ export default function Shop() {
                             <div className="w-2/3 p-4 flex flex-col justify-between">
                                 <div>
                                     <p className="text-2xl font-semibold text-black">{item.title}</p>
-                                    <p className="text-xl font-normal text-black">{item.size}, {item.medium}</p>
+                                    <p className="text-xl font-normal text-black">{item.size}, {item.medium.replace(/_/g, " ")}</p>
                                     <p className="text-gray-700 text-xl py-1">£{item.price}</p>
                                 </div>
                                 <a 
