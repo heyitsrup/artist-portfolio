@@ -22,7 +22,7 @@ export default function Navbar() {
           <Link href="/" title="Gallery">gallery</Link>
         </li>
         <li className="md:px-4 md:py-4 hover:text-green-700 hover:scale-110 transition">
-          <Link href="#" title="Shop">shop</Link>
+          <Link href="/shop" title="Shop">shop</Link>
         </li>
         <li className="md:px-4 md:py-4 hover:text-green-700 hover:scale-110 transition">
           <Link href="/about" title="About">about</Link>

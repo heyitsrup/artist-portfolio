@@ -32,9 +32,9 @@ export default function Home() {
             return (
               <div
                 key={piece.id}
-                className={`relative group flex flex-col ${isLandscape ? 'col-span-2' : 'col-span-1'} min-h-full`} // Allow landscape to span 2 columns and center vertically
+                className={`relative group flex flex-col ${isLandscape ? 'col-span-2' : 'col-span-1'} min-h-full`}
               >
-                <div className="relative w-full flex items-center justify-center min-h-full"> {/* Flex to center vertically */}
+                <div className="relative w-full flex items-center justify-center min-h-full">
                   <div className="w-full" style={{ height: isLandscape ? 'auto' : '100%' }}>
                     <Image
                       src={piece.image}
@@ -45,7 +45,6 @@ export default function Home() {
                     />
                   </div>
 
-                  {/* Overlay matching the size of the image */}
                   <div className="absolute inset-0 flex rounded-xl items-center justify-center bg-black bg-opacity-50 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <div className="text-start p-4">
                       <span className="text-xl">{piece.title}</span>
