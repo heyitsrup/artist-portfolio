@@ -14,7 +14,7 @@ export async function GET(request) {
     }
 
     try {
-        const galleryPiece = await prisma.galleryPiece.findFirst({  // Use findFirst instead of findUnique
+        const galleryPiece = await prisma.galleryPiece.findFirst({ 
             where: { title },
         });
 
