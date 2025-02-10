@@ -21,8 +21,8 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="container mx-auto pt-16">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+    <div className="container mx-auto pt-16 px-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {galleryPieces.length > 0 ? (
           galleryPieces.map((piece) => {
             const isLandscape = piece.orientation === "landscape";

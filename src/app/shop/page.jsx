@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { Allura } from "next/font/google";
+const allura = Allura({ subsets: ["latin"], weight: "400" });
 
 export default function Shop() {
     const [shopItems, setShopItems] = useState([]);
@@ -41,14 +43,12 @@ export default function Shop() {
 
                             <div className="w-2/3 p-4 flex flex-col justify-between">
                                 <div>
-                                    <p className="text-2xl font-semibold text-black">{item.title}</p>
+                                    <p className={`text-2xl font-semibold text-black ${allura.className}`}>{item.title}</p>
                                     <p className="text-xl font-normal text-black">{item.size}, {item.medium.replace(/_/g, " ")}</p>
                                     <p className="text-gray-700 text-xl py-1">£{item.price}</p>
                                 </div>
-                                <a 
-                                    href="#" 
-                                    className="bg-green-700 text-white font-medium rounded-lg text-sm px-4 py-2 text-center"
-                                >
+                                <a href={`/shop/${item.title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")}?title=${encodeURIComponent(item.title)}`}
+                                    className="bg-green-700 text-white font-medium rounded-lg text-sm px-4 py-2 text-center">
                                     Buy
                                 </a>
                             </div>
