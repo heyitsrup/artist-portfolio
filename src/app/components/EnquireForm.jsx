@@ -61,7 +61,7 @@ export default function EnquireForm() {
   };
 
   return (
-    <div className="bg-[#EBE8DE] flex items-center justify-center min-h-screen">
+    <div className="bg-[#EBE8DE] flex items-center justify-center pt-8">
       <div className="p-6 rounded-2xl shadow-lg w-full max-w-lg">
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name Input */}
