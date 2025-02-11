@@ -10,9 +10,9 @@ export default function Footer() {
 
         <span>&nbsp;&nbsp;//&nbsp;&nbsp;</span>
 
-        <a href="#" className="flex items-center space-x-2">
-          <p className="text-2xl">🗎</p>
-          <span>Terms & Conditions</span>
+        <a href="https://github.com/heyitsrup" className="flex items-center space-x-2">
+          <p className="text-2xl">♥</p>
+          <span>Made by @heyitsrup</span>
         </a>
 
         <span>&nbsp;&nbsp;//&nbsp;&nbsp;</span>
