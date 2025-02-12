@@ -2,11 +2,14 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import { Allura } from "next/font/google";
 import { useSearchParams } from "next/navigation";
 
 import CheckoutPage from "../../components/CheckoutPage"
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+
+const allura = Allura({ subsets: ["latin"], weight: "400" });
 
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
     throw new Error("NEXT_PUBLIC_STRIPE_PUBLIC_KEY is not defined");
@@ -50,7 +53,7 @@ export default function Checkout() {
             <div className="flex w-full max-w-5xl shadow-lg rounded-lg overflow-hidden">
                 {/* LEFT SIDE - Product Info */}
                 <div className="w-1/2 bg-gray-900 text-white px-8 flex flex-col justify-center">
-                    <h1 className="text-xl font-bold pt-8">{shopItem.title}</h1>
+                    <h1 className={`text-2xl font-bold pt-8 ${allura.className}`}>{shopItem.title}</h1>
                     <p className="text-3xl font-bold pb-4">£{ amount }</p>
                     <div className="w-full flex justify-center pb-8">
                         <Image
@@ -70,7 +73,7 @@ export default function Checkout() {
                         options={{
                             mode: "payment",
                             amount: convertToSubcurrency(amount),
-                            currency: "gpb"
+                            currency: "gbp"
                         }}
                     >
                         <CheckoutPage amount={shopItem.price.toFixed(2)} />
