@@ -7,7 +7,7 @@ import EnquireForm from '../components/EnquireForm.jsx';
 export default function About() {
   return (
     <div>
-      <p className="text-center text-[2vw] font-light py-4">
+      <p className="font-serif text-center text-[2vw] font-light py-4">
         PASSIONATE ABOUT BRINGING DREAMS ON TO A CANVAS
       </p>
 

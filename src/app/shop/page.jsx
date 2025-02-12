@@ -29,7 +29,7 @@ export default function Shop() {
                     shopItems.map((item) => (
                         <div 
                             key={item.id} 
-                            className="flex bg-transparent border border-black rounded-lg shadow-sm overflow-hidden"
+                            className="flex bg-transparent border border-black rounded-lg shadow-sm overflow-hidden hover:scale-105 transition"
                         >
                             <div className="w-1/3">
                                 <Image
