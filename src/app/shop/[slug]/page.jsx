@@ -50,7 +50,7 @@ export default function Checkout() {
 
     return (
         <div className="flex items-center justify-center">
-            <div className="flex w-full max-w-5xl shadow-lg rounded-lg overflow-hidden">
+            <div className="flex flex-col md:flex-row shadow-lg rounded-lg overflow-hidden">
                 {/* LEFT SIDE - Product Info */}
                 <div className="w-1/2 bg-gray-900 text-white px-8 flex flex-col justify-center">
                     <h1 className={`text-2xl font-bold pt-8 ${allura.className}`}>{shopItem.title}</h1>
@@ -67,7 +67,7 @@ export default function Checkout() {
                 </div>
 
                 {/* RIGHT SIDE - Payment Info */}
-                <div className="w-1/2 bg-white p-8">
+                <div className="w-full md:w-1/2 bg-white p-8">
                     <Elements 
                         stripe={stripePromise}
                         options={{

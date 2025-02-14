@@ -3,6 +3,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Homemade_Apple } from "next/font/google";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+
 const homemadeApple = Homemade_Apple({ subsets: ["latin"], weight: "400" });
 
 export default function Navbar() {
@@ -13,7 +16,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="flex items-center justify-between bg-transparent w-[95%] m-auto rounded-2xl top-5 left-1/2 transform p-6 z-50">
+    <nav className="relative flex items-center justify-between bg-transparent w-[95%] m-auto p-6 z-50">
       {/* Left-aligned Logo */}
       <div className="flex flex-col leading-tight">
         <span className={`text-2xl text-green-700 font-bold tracking-wide ${homemadeApple.className}`}>
@@ -23,27 +26,6 @@ export default function Navbar() {
           ART SHOP
         </span>
       </div>
-
-      {/* Hamburger Icon for small screens */}
-      <button
-        onClick={toggleMobileMenu}
-        className="md:hidden text-gray-600 focus:outline-none"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          strokeWidth="2"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
-      </button>
 
       {/* Right-aligned Links (Visible on Medium and Larger Screens) */}
       <ul className="hidden md:flex space-x-6 text-gray-600">
@@ -58,22 +40,53 @@ export default function Navbar() {
         </li>
       </ul>
 
-      {/* Mobile Menu (Visible on Small Screens) */}
-      <div
-        className={`md:hidden ${isMobileMenuOpen ? "block" : "hidden"} transition-all duration-300 ease-in-out absolute top-16 left-1/2 transform -translate-x-1/2 bg-white p-4 rounded-lg shadow-lg w-full z-10`}
+      {/* Mobile Menu Button */}
+      <motion.button
+        className="md:hidden text-gray-700 focus:outline-none"
+        onClick={toggleMobileMenu}
+        initial={{ rotate: 0 }}
+        animate={{ rotate: isMobileMenuOpen ? 90 : 0 }}
+        transition={{ duration: 0.3 }}
       >
-        <ul className="flex flex-col space-y-4 text-gray-600">
-          <li className="hover:text-green-700 hover:scale-110 transition">
-            <Link href="/" title="Gallery" onClick={() => setIsMobileMenuOpen(false)}>gallery</Link>
-          </li>
-          <li className="hover:text-green-700 hover:scale-110 transition">
-            <Link href="/shop" title="Shop" onClick={() => setIsMobileMenuOpen(false)}>shop</Link>
-          </li>
-          <li className="hover:text-green-700 hover:scale-110 transition">
-            <Link href="/about" title="About" onClick={() => setIsMobileMenuOpen(false)}>about</Link>
-          </li>
-        </ul>
-      </div>
+        {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+      </motion.button>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 bg-[#EBE8DE] flex flex-col items-center justify-center space-y-6 text-3xl text-gray-700 z-50"
+          >
+            <div className="flex flex-col leading-tight absolute top-6 left-8">
+              <span className={`text-2xl text-green-700 font-bold tracking-wide ${homemadeApple.className}`}>
+                l a w a n y a
+              </span>
+              <span className="text-sm text-gray-600 uppercase tracking-widest text-center">
+                ART SHOP
+              </span>
+            </div>
+
+            <button className="absolute top-2 right-8 text-gray-700" onClick={toggleMobileMenu}> <X size={32} /> </button>
+
+            <Link href="/" onClick={toggleMobileMenu} className="hover:text-green-700 transition">
+              gallery
+            </Link>
+            <Link href="/shop" onClick={toggleMobileMenu} className="hover:text-green-700 transition">
+              shop
+            </Link>
+            <Link href="/about" onClick={toggleMobileMenu} className="hover:text-green-700 transition">
+              about
+            </Link>
+
+            <a href="https://www.instagram.com/lava.paints/" target="_blank" rel="noopener noreferrer" className="absolute bottom-6 flex items-center space-x-2">
+              <img className="h-10 w-10" src="/instagram.svg" alt="IG" />
+            </a>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

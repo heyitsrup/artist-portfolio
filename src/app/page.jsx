@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <div className="container mx-auto pt-16 px-8">
-      <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {galleryPieces.length > 0 ? (
           galleryPieces.map((piece) => {
             const isLandscape = piece.orientation === "landscape";
@@ -32,7 +32,7 @@ export default function Home() {
             return (
               <div
                 key={piece.id}
-                className={`relative group flex flex-col ${isLandscape ? 'col-span-2' : 'col-span-1'} min-h-full`}
+                className={`relative group flex flex-col ${isLandscape ? 'md:col-span-2' : 'col-span-1'} min-h-full`}
               >
                 <div className="relative w-full flex items-center justify-center min-h-full">
                   <div className="w-full" style={{ height: isLandscape ? 'auto' : '100%' }}>
