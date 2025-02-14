@@ -9,7 +9,7 @@ async function main() {
       { title: "Fire", image: "/images/media/gallery_pieces/Fire.png", size: "A3", medium: "Acrylic_Painting", price: 40, status: "On_Sale", orientation: "portrait" },
       { title: "Stare", image: "/images/media/gallery_pieces/Stare.png", size: "A3", medium: "Acrylic_Painting", price: 40, status: "On_Sale", orientation: "portrait" },
       { title: "Dreams", image: "/images/media/gallery_pieces/Dreams.png", size: "A3", medium: "Acrylic_Painting", price: 40, status: "On_Sale", orientation: "portrait" },
-      { title: "Pain (Naruto)", image: "/images/media/gallery_pieces/Pain-Anime-Character.JPG", size: "A1", medium: "Acrylic_Painting", price: 40, status: "Sold", orientation: "portrait" },
+      { title: "Pain (Naruto)", image: "/images/media/gallery_pieces/Pain-Anime-Character.JPG", size: "A1", medium: "Acrylic_Painting", price: 40, status: "Sold", orientation: "landscape" },
       { title: "Culture", image: "/images/media/gallery_pieces/Culture.jpg", size: "A3", medium: "Acrylic_Painting", price: 40, status: "On_Sale", orientation: "portrait" },
       { title: "The Moment", image: "/images/media/gallery_pieces/The-Moment.png", size: "A3", medium: "Acrylic_Painting", price: 40, status: "On_Sale", orientation: "portrait" },
       { title: "Radiance", image: "/images/media/gallery_pieces/Radiance.JPG", size: "A3", medium: "Acrylic_Painting", price: 40, status: "On_Sale", orientation: "portrait" },
