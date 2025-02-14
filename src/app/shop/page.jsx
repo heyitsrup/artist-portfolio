@@ -48,7 +48,7 @@ export default function Shop() {
                                     <p className="text-gray-700 text-xl py-1">£{item.price}</p>
                                 </div>
                                 <a href={`/shop/${item.title.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")}?title=${encodeURIComponent(item.title)}`}
-                                    className="bg-green-700 text-white font-medium rounded-lg text-sm px-4 py-2 text-center">
+                                    className="bg-red-950 text-white font-medium rounded-lg text-sm px-4 py-2 text-center">
                                     Buy
                                 </a>
                             </div>

@@ -52,7 +52,7 @@ export default function Checkout() {
         <div className="flex items-center justify-center">
             <div className="flex flex-col md:flex-row shadow-lg rounded-lg overflow-hidden">
                 {/* LEFT SIDE - Product Info */}
-                <div className="w-1/2 bg-gray-900 text-white px-8 flex flex-col justify-center">
+                <div className="w-1/2 bg-red-950 text-white px-8 flex flex-col justify-center">
                     <h1 className={`text-2xl font-bold pt-8 ${allura.className}`}>{shopItem.title}</h1>
                     <p className="text-3xl font-bold pb-4">£{ amount }</p>
                     <div className="w-full flex justify-center pb-8">

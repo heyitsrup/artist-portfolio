@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="text-black py-24 bottom-0 w-full border-t-2 border-green-700">
+    <footer className="text-black py-24 bottom-0 w-full border-t-2 border-red-950">
       <div className="container mx-auto flex flex-col sm:flex-row items-center justify-center px-4 space-y-4 sm:space-y-0 sm:space-x-4 text-center sm:text-left">
         
         <a href="https://www.instagram.com/lava.paints/" target="_blank" rel="noopener noreferrer"

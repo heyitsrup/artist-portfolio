@@ -76,7 +76,7 @@ export default function EnquireForm() {
               value={formData.name}
               onChange={handleChange}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-green-700 focus:border-green-700 sm:text-lg"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-lg"
             />
           </div>
 
@@ -92,7 +92,7 @@ export default function EnquireForm() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-lg"
             />
           </div>
 
@@ -107,7 +107,7 @@ export default function EnquireForm() {
               value={formData.size}
               onChange={handleChange}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-lg"
             >
               <option value="starter">Select the size</option>
               <option value="A5">A5</option>
@@ -129,7 +129,7 @@ export default function EnquireForm() {
               value={formData.medium}
               onChange={handleChange}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-lg"
             >
               <option value="starter">Select the style</option>
               <option value="acrylic">Acrylic</option>
@@ -150,7 +150,7 @@ export default function EnquireForm() {
               value={formData.event}
               onChange={handleChange}
               required
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-lg"
             />
           </div>
 
@@ -165,7 +165,7 @@ export default function EnquireForm() {
               value={formData.details}
               onChange={handleChange}
               rows="4"
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm sm:text-sm"
             ></textarea>
           </div>
 
@@ -173,7 +173,7 @@ export default function EnquireForm() {
           <div>
             <button
               type="submit"
-              className="w-full py-2 px-4 bg-green-700 text-white font-semibold rounded-lg shadow-md hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="w-full py-2 px-4 bg-red-950 hover:bg-green-700 text-white font-semibold rounded-lg shadow-md"
             >
               Submit
             </button>

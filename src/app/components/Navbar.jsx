@@ -2,11 +2,11 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Homemade_Apple } from "next/font/google";
+import { Corinthia } from "next/font/google";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const homemadeApple = Homemade_Apple({ subsets: ["latin"], weight: "400" });
+const corinthia = Corinthia({ subsets: ["latin"], weight: "400" });
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -19,7 +19,7 @@ export default function Navbar() {
     <nav className="relative flex items-center justify-between bg-transparent w-[95%] m-auto p-6 z-50">
       {/* Left-aligned Logo */}
       <div className="flex flex-col leading-tight">
-        <span className={`text-2xl text-green-700 font-bold tracking-wide ${homemadeApple.className}`}>
+        <span className={`text-5xl text-red-950 font-bold tracking-wide ${corinthia.className}`}>
           l a w a n y a
         </span>
         <span className="text-sm text-gray-600 uppercase tracking-widest text-center">
@@ -29,13 +29,13 @@ export default function Navbar() {
 
       {/* Right-aligned Links (Visible on Medium and Larger Screens) */}
       <ul className="hidden md:flex space-x-6 text-gray-600">
-        <li className="md:px-4 md:py-4 hover:text-green-700 hover:scale-110 transition">
+        <li className="md:px-4 md:py-4 hover:text-red-950 hover:scale-110 transition">
           <Link href="/" title="Gallery">gallery</Link>
         </li>
-        <li className="md:px-4 md:py-4 hover:text-green-700 hover:scale-110 transition">
+        <li className="md:px-4 md:py-4 hover:text-red-950 hover:scale-110 transition">
           <Link href="/shop" title="Shop">shop</Link>
         </li>
-        <li className="md:px-4 md:py-4 hover:text-green-700 hover:scale-110 transition">
+        <li className="md:px-4 md:py-4 hover:text-red-950 hover:scale-110 transition">
           <Link href="/about" title="About">about</Link>
         </li>
       </ul>
@@ -61,7 +61,7 @@ export default function Navbar() {
             className="fixed inset-0 bg-[#EBE8DE] flex flex-col items-center justify-center space-y-6 text-3xl text-gray-700 z-50"
           >
             <div className="flex flex-col leading-tight absolute top-6 left-8">
-              <span className={`text-2xl text-green-700 font-bold tracking-wide ${homemadeApple.className}`}>
+              <span className={`text-5xl text-red-950 font-bold tracking-wide ${corinthia.className}`}>
                 l a w a n y a
               </span>
               <span className="text-sm text-gray-600 uppercase tracking-widest text-center">
@@ -71,13 +71,13 @@ export default function Navbar() {
 
             <button className="absolute top-2 right-8 text-gray-700" onClick={toggleMobileMenu}> <X size={32} /> </button>
 
-            <Link href="/" onClick={toggleMobileMenu} className="hover:text-green-700 transition">
+            <Link href="/" onClick={toggleMobileMenu} className="hover:text-red-950 transition">
               gallery
             </Link>
-            <Link href="/shop" onClick={toggleMobileMenu} className="hover:text-green-700 transition">
+            <Link href="/shop" onClick={toggleMobileMenu} className="hover:text-red-950 transition">
               shop
             </Link>
-            <Link href="/about" onClick={toggleMobileMenu} className="hover:text-green-700 transition">
+            <Link href="/about" onClick={toggleMobileMenu} className="hover:text-red-950 transition">
               about
             </Link>
 
